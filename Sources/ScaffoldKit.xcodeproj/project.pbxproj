@@ -11,7 +11,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		73828B582E6880CB00150B3F /* Exceptions for "UIKitTools" folder in "ScaffoldKit" target */ = {
+		73828B582E6880CB00150B3F /* Exceptions for "ScaffoldKit" folder in "ScaffoldKit" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			publicHeaders = (
 				UIKitTools.h,
@@ -21,12 +21,12 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		73828B532E6880CB00150B3F /* UIKitTools */ = {
+		73828B532E6880CB00150B3F /* ScaffoldKit */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				73828B582E6880CB00150B3F /* Exceptions for "UIKitTools" folder in "ScaffoldKit" target */,
+				73828B582E6880CB00150B3F /* Exceptions for "ScaffoldKit" folder in "ScaffoldKit" target */,
 			);
-			path = UIKitTools;
+			path = ScaffoldKit;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -45,7 +45,7 @@
 		73828B472E6880CB00150B3F = {
 			isa = PBXGroup;
 			children = (
-				73828B532E6880CB00150B3F /* UIKitTools */,
+				73828B532E6880CB00150B3F /* ScaffoldKit */,
 				73828B522E6880CB00150B3F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -85,7 +85,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				73828B532E6880CB00150B3F /* UIKitTools */,
+				73828B532E6880CB00150B3F /* ScaffoldKit */,
 			);
 			name = ScaffoldKit;
 			packageProductDependencies = (

@@ -17,6 +17,11 @@ let package = Package(
         .target(
             name: "ScaffoldKit",
             path: "Sources/ScaffoldKit"
-        )
+        ),
+        .testTarget(
+            name: "ScaffoldKitTests",
+            dependencies: ["ScaffoldKit"],
+            path: "Tests/ScaffoldKitTests"
+        ),
     ]
 )
