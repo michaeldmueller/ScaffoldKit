@@ -6,20 +6,19 @@
 //
 
 import Foundation
-import SwiftyBeaver
 
 class LoggingService {
     
     public static let shared = LoggingService()
     
 //    private let datadogLogger = DatadogLogger()
-    private let consoleLogger = SwiftyBeaver.self
+//    private let consoleLogger = SwiftyBeaver.self
     
     private init() {
-        let console = ConsoleDestination()
-        console.format = "$DHH:mm:ss.SSS$d $C($L)$c $M"
-        console.logPrintWay = .logger(subsystem: "Main", category: "UI")
-        consoleLogger.addDestination(console)
+//        let console = ConsoleDestination()
+//        console.format = "$DHH:mm:ss.SSS$d $C($L)$c $M"
+//        console.logPrintWay = .logger(subsystem: "Main", category: "UI")
+//        consoleLogger.addDestination(console)
     }
     
     func debug(
@@ -27,8 +26,8 @@ class LoggingService {
         sender: Any,
         consoleOnly: Bool = false
     ) {
-        let senderString = String(describing: type(of: sender))
-        consoleLogger.debug("\(senderString): \(message)")
+//        let senderString = String(describing: type(of: sender))
+//        consoleLogger.debug("\(senderString): \(message)")
 
         if (!consoleOnly) {
 //            Bugfender.print(message, sender)
@@ -45,8 +44,8 @@ class LoggingService {
         sender: Any,
         consoleOnly: Bool = false
     ) {
-        let senderString = String(describing: type(of: sender))
-        consoleLogger.info("\(senderString): \(message)")
+//        let senderString = String(describing: type(of: sender))
+//        consoleLogger.info("\(senderString): \(message)")
 
         if (!consoleOnly) {
 //            Bugfender.print(message, sender)
@@ -63,8 +62,8 @@ class LoggingService {
         sender: Any,
         consoleOnly: Bool = false
     ) {
-        let senderString = String(describing: type(of: sender))
-        consoleLogger.info("\(senderString): \(message)") // SwiftyBeaver doesn't have a notice log-level
+//        let senderString = String(describing: type(of: sender))
+//        consoleLogger.info("\(senderString): \(message)") // SwiftyBeaver doesn't have a notice log-level
 
         if (!consoleOnly) {
 //            Bugfender.print(message, sender)
@@ -81,8 +80,8 @@ class LoggingService {
         sender: Any,
         consoleOnly: Bool = false
     ) {
-        let senderString = String(describing: type(of: sender))
-        consoleLogger.warning("\(senderString): \(message)")
+//        let senderString = String(describing: type(of: sender))
+//        consoleLogger.warning("\(senderString): \(message)")
 
         if (!consoleOnly) {
 //            Bugfender.warning(message, sender)
@@ -99,8 +98,8 @@ class LoggingService {
         sender: Any,
         consoleOnly: Bool = false
     ) {
-        let senderString = String(describing: type(of: sender))
-        consoleLogger.error("\(senderString): \(message)")
+//        let senderString = String(describing: type(of: sender))
+//        consoleLogger.error("\(senderString): \(message)")
 
         if (!consoleOnly) {
 //            Bugfender.error(message, sender)
@@ -117,8 +116,8 @@ class LoggingService {
         sender: Any,
         consoleOnly: Bool = false
     ) {
-        let senderString = String(describing: type(of: sender))
-        consoleLogger.error("\(senderString): \(error)")
+//        let senderString = String(describing: type(of: sender))
+//        consoleLogger.error("\(senderString): \(error)")
 
         if (!consoleOnly) {
 //            Bugfender.error(error, sender)

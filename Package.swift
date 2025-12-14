@@ -12,9 +12,7 @@ let package = Package(
             targets: ["ScaffoldKit"]
         ),
     ],
-    dependencies: [
-        .package(url: "https://github.com/SwiftyBeaver/SwiftyBeaver.git", from: "2.1.1")
-    ],
+    dependencies: [],
     targets: [
         .target(
             name: "ScaffoldKit",
