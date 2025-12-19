@@ -40,19 +40,6 @@ public func separator(
     return view
 }
 
-public func symbolImageView(
-    image: UIImage?,
-    tintColor: UIColor = UIColor.black
-) -> UIImageView {
-    let iv = UIImageView()
-    iv.image = image
-    iv.translatesAutoresizingMaskIntoConstraints = false
-    iv.contentMode = .scaleAspectFit
-    iv.tintColor = tintColor
-    
-    return iv
-}
-
 public func label(
     text: String? = nil,
     font: UIFont = UIFont.scalingFont(forTextStyle: .body),
