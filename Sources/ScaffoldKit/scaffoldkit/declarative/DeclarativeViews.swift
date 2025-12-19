@@ -8,22 +8,6 @@
 import UIKit
 
 public enum DeclarativeView {
-    
-    public static func stackView(
-        axis: NSLayoutConstraint.Axis = .vertical,
-        distribution: UIStackView.Distribution = .fill,
-        alignment: UIStackView.Alignment = .fill,
-        spacing: Double = Constants.smallMargin,
-        arrangedSubviews: UIView...
-    ) -> UIStackView {
-        return stackView(
-            axis: axis,
-            distribution: distribution,
-            alignment: alignment,
-            spacing: spacing,
-            arrangedSubviews: arrangedSubviews
-        )
-    }
 
     public static func stackView(
         axis: NSLayoutConstraint.Axis = .vertical,
@@ -52,12 +36,8 @@ public enum DeclarativeView {
     ) -> UIView {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        
         view.backgroundColor = backgroundColor
-        
-        NSLayoutConstraint.activate([
-            view.heightAnchor.constraint(equalToConstant: height),
-        ])
+        view.heightAnchor.constraint(equalToConstant: height).isActive = true
         
         return view
     }
@@ -71,6 +51,7 @@ public enum DeclarativeView {
         iv.translatesAutoresizingMaskIntoConstraints = false
         iv.contentMode = .scaleAspectFit
         iv.tintColor = tintColor
+        
         return iv
     }
     
@@ -90,6 +71,30 @@ public enum DeclarativeView {
         label.numberOfLines = numberOfLines
         
         return label
+    }
+    
+    public static func imageView(
+        image: UIImage?,
+        tintColor: UIColor = AppColor.primary,
+        contentMode: UIView.ContentMode = .scaleAspectFit,
+        height: CGFloat? = nil,
+        width: CGFloat? = nil
+    ) -> UIImageView {
+        let iv = UIImageView()
+        iv.translatesAutoresizingMaskIntoConstraints = false
+        iv.image = image
+        iv.tintColor = tintColor
+        iv.contentMode = contentMode
+        
+        if let height {
+            iv.heightAnchor.constraint(equalToConstant: height).isActive = true
+        }
+        
+        if let width {
+            iv.widthAnchor.constraint(equalToConstant: width).isActive = true
+        }
+        
+        return iv
     }
     
     public static func view(
