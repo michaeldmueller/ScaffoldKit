@@ -1,4 +1,4 @@
-An opiniated toolkit for accelerating iOS development with declarative views, loading indicators, and much more.
+An opinionated toolkit for accelerating iOS development with declarative views, loading indicators, and much more.
 
 # Features
 
