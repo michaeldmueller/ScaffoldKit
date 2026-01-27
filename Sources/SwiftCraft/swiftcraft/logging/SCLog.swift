@@ -1,14 +1,14 @@
 //
-//  Log.swift
+//  SCLog.swift
 //  ScaffoldKit
 //
 //  Created by Michael Mueller on 12/15/25.
 //
 
-enum Log {
+enum SCLog {
     
     case error(error: Error)
     case message(message: String)
-    case event(event: LogEvent)
+    case event(event: SCLogEvent)
     
 }

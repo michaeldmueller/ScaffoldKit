@@ -7,7 +7,7 @@
 
 import UIKit
 
-public class LoadingService {
+extension SC {
     
     static private let loadingView = LoadingView()
     

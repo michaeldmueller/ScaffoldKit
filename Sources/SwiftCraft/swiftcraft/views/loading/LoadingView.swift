@@ -10,6 +10,7 @@ import UIKit
 class LoadingView: UIView {
     
     private let activityIndicatorContainerViewSize: CGFloat = 88.0
+    private let containerViewCornerRadius = 7.0
     
     private let activityIndicatorView: UIActivityIndicatorView = {
         let aiv = UIActivityIndicatorView()
@@ -25,19 +26,15 @@ class LoadingView: UIView {
         return view
     }()
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        initUI()
-    }
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         initUI()
     }
     
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        initUI()
+        fatalError("Unavailable")
     }
     
     private func initUI() {
@@ -46,7 +43,7 @@ class LoadingView: UIView {
         
         activityIndicatorView.startAnimating()
         
-        activityIndicatorContainerView.layer.cornerRadius = 7.0
+        activityIndicatorContainerView.layer.cornerRadius = containerViewCornerRadius
         
         NSLayoutConstraint.activate([
             activityIndicatorContainerView.centerXAnchor.constraint(equalTo: centerXAnchor),

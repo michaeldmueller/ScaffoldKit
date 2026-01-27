@@ -7,7 +7,7 @@
 
 import UIKit
 
-public class ScaffoldPrompt {
+extension SC {
     
     public static func alert(
         title: String,
@@ -25,7 +25,7 @@ public class ScaffoldPrompt {
             
             let actions = [
                 UIAlertAction(
-                    title: buttonText ?? Scaffold.appearance.text.alertDismissText,
+                    title: buttonText ?? SC.appearance.text.alertDismissText,
                     style: UIAlertAction.Style.default
                 ) { action in
                     DispatchQueue.main.async {
@@ -64,13 +64,13 @@ public class ScaffoldPrompt {
             
             let actions = [
                 UIAlertAction(
-                    title: cancelText ?? Scaffold.appearance.text.confirmCancelText,
+                    title: cancelText ?? SC.appearance.text.confirmCancelText,
                     style: UIAlertAction.Style.cancel
                 ) { action in
                     cancelCompletion?()
                 },
                 UIAlertAction(
-                    title: confirmationText ?? Scaffold.appearance.text.confirmConfirmationText,
+                    title: confirmationText ?? SC.appearance.text.confirmConfirmationText,
                     style: UIAlertAction.Style.default
                 ) { action in
                     positiveCompletion?()

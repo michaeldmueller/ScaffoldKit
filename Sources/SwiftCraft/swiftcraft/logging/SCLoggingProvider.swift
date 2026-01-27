@@ -1,34 +1,34 @@
 //
-//  LoggingProvider.swift
+//  SCLoggingProvider.swift
 //  ScaffoldKit
 //
 //  Created by Michael Mueller on 12/14/25.
 //
 
-protocol LoggingProvider {
+protocol SCLoggingProvider {
     
     func debug(
-        message: Log,
+        message: SCLog,
         sender: Any
     )
     
     func info(
-        message: Log,
+        message: SCLog,
         sender: Any
     )
     
     func notice(
-        message: Log,
+        message: SCLog,
         sender: Any
     )
     
     func warn(
-        message: Log,
+        message: SCLog,
         sender: Any
     )
     
     func error(
-        message: Log,
+        message: SCLog,
         sender: Any
     )
     

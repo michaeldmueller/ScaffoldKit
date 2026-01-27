@@ -7,7 +7,7 @@
 
 import UIKit
 
-public struct ScaffoldAppearance {
+public struct SwiftCraftAppearance {
     
     public var margin: Margin = Margin()
     public var text: Text = Text()

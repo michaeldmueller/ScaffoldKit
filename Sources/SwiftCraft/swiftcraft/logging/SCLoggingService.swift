@@ -1,30 +1,30 @@
 //
-//  LoggingService.swift
-//  UIKitTools
+//  SCLoggingService.swift
+//  SwiftCraft
 //
 //  Created by Michael Mueller on 9/25/25.
 //
 
 import Foundation
 
-class LoggingService {
+class SCLoggingService {
     
-    public static let shared = LoggingService()
+    public static let shared = SCLoggingService()
     
-    private var providers = [LoggingProvider]()
+    private var providers = [SCLoggingProvider]()
     
     private init() {}
     
-    public func registerLoggingProvider(provider: LoggingProvider) {
+    public func registerLoggingProvider(provider: SCLoggingProvider) {
         self.providers.append(provider)
     }
     
-    public func registerLoggingProviders(providers: [LoggingProvider]) {
+    public func registerLoggingProviders(providers: [SCLoggingProvider]) {
         self.providers += providers
     }
     
     func debug(
-        message: Log,
+        message: SCLog,
         sender: Any
     ) {
         providers.forEach {
@@ -33,7 +33,7 @@ class LoggingService {
     }
     
     func info(
-        message: Log,
+        message: SCLog,
         sender: Any
     ) {
         providers.forEach {
@@ -42,7 +42,7 @@ class LoggingService {
     }
     
     func notice(
-        message: Log,
+        message: SCLog,
         sender: Any
     ) {
         providers.forEach {
@@ -51,7 +51,7 @@ class LoggingService {
     }
     
     func warn(
-        message: Log,
+        message: SCLog,
         sender: Any
     ) {
         providers.forEach {
@@ -60,7 +60,7 @@ class LoggingService {
     }
     
     func error(
-        message: Log,
+        message: SCLog,
         sender: Any
     ) {
         providers.forEach {

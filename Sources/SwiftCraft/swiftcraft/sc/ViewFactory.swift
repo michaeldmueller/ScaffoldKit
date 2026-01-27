@@ -1,26 +1,19 @@
 //
-//  DeclarativeViews.swift
-//  UIKitTools
+//  ViewFactory.swift
+//  SwiftCraft
 //
-//  Created by Michael Mueller on 9/3/25.
+//  Created by Michael Mueller on 1/27/26.
 //
 
 import UIKit
 
-public enum Scaffold {
-    
-    private static var _appearance = ScaffoldAppearance()
-    
-    public static var appearance: ScaffoldAppearance {
-        get { _appearance }
-        set { _appearance = newValue }
-    }
+extension SC {
     
     public static func stackView(
         axis: NSLayoutConstraint.Axis = .vertical,
         distribution: UIStackView.Distribution = .fill,
         alignment: UIStackView.Alignment = .fill,
-        spacing: Double = Scaffold.appearance.margin.small,
+        spacing: Double = SC.appearance.margin.small,
         arrangedSubviews: [UIView] = []
     ) -> UIStackView {
         let sv = UIStackView()
@@ -38,7 +31,7 @@ public enum Scaffold {
     }
 
     public static func separator(
-        backgroundColor: UIColor = Scaffold.appearance.color.outline,
+        backgroundColor: UIColor = SC.appearance.color.outline,
         height: CGFloat = 1.0
     ) -> UIView {
         let view = UIView()
@@ -52,7 +45,7 @@ public enum Scaffold {
     public static func label(
         text: String? = nil,
         font: UIFont = UIFont.scalingFont(forTextStyle: .body),
-        textColor: UIColor = Scaffold.appearance.color.textPrimary,
+        textColor: UIColor = SC.appearance.color.textPrimary,
         textAlignment: NSTextAlignment = NSTextAlignment.left,
         numberOfLines: Int = 1
     ) -> UILabel {
@@ -69,7 +62,7 @@ public enum Scaffold {
 
     public static func imageView(
         image: UIImage?,
-        tintColor: UIColor = Scaffold.appearance.color.primary,
+        tintColor: UIColor = SC.appearance.color.primary,
         contentMode: UIView.ContentMode = .scaleAspectFit,
         height: CGFloat? = nil,
         width: CGFloat? = nil
