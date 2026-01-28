@@ -1,42 +1,135 @@
-An opinionated toolkit for accelerating iOS development with declarative views, loading indicators, and much more.
+# SwiftCraft
 
-# Features
+A toolkit for accelerating programmatic UIKit development with declarative view factories, loading indicators, alerts, and a centralized appearance system.
 
-### View Factory Optimized for Programmatic UIKit
-Instantiate views by calling `ScaffoldKit.imageView()` or `ScaffoldKit.label()`. Each function has common-sense defaults to minimize the amount of code required. 
+## Installation
 
-#### Example Usage
+Add SwiftCraft to your project via Swift Package Manager:
+
 ```swift
-let label = ScaffoldKit.label(
-    text: "Some sample text",
-    textColor: AppColor.primary
+dependencies: [
+    .package(url: "https://github.com/your-username/SwiftCraft.git", from: "1.0.0")
+]
+```
+
+**Requirements:** iOS 16+, Swift 5.9+
+
+## Usage
+
+All functionality is accessed through the `SC` namespace.
+
+### View Factory
+
+Create common UIKit views with sensible defaults. All views are returned with `translatesAutoresizingMaskIntoConstraints = false`.
+
+```swift
+let label = SC.label(
+    text: "Hello, world",
+    font: SC.appearance.font.headline,
+    textColor: SC.appearance.color.textPrimary
 )
 
-let view = ScaffoldKit.view(
-    height: 100.0,
-    width: 100.0,
-    backgroundColor: AppColor.container
+let stack = SC.stackView(
+    axis: .vertical,
+    spacing: SC.appearance.margin.standard,
+    arrangedSubviews: [label, anotherView]
+)
+
+let image = SC.imageView(
+    image: UIImage(systemName: "star"),
+    tintColor: SC.appearance.color.primary,
+    height: 24,
+    width: 24
+)
+
+let divider = SC.separator()
+
+let spacer = SC.view(height: 20)
+```
+
+### Buttons
+
+Pre-styled buttons with customizable appearances:
+
+```swift
+let primary = SC.primaryButton(title: "Submit")
+let secondary = SC.secondaryButton(title: "Delete")
+let tertiary = SC.tertiaryButton(title: "Cancel")
+let outlined = SC.borderedButton(title: "Learn More")
+```
+
+### Loading Overlay
+
+Display a loading indicator over a view controller:
+
+```swift
+SC.startLoading(parent: self)
+
+// Later...
+SC.stopLoading()
+
+// Or auto-dismiss after duration:
+SC.startLoading(parent: self, durationMillis: 2000)
+```
+
+### Alerts and Confirmations
+
+Present alerts, confirmation dialogs, and action sheets:
+
+```swift
+SC.alert(
+    title: "Error",
+    message: "Something went wrong.",
+    presenter: self
+)
+
+SC.confirm(
+    title: "Delete Item",
+    message: "Are you sure?",
+    presenter: self,
+    positiveCompletion: { /* delete */ },
+    cancelCompletion: nil
+)
+
+SC.actionSheet(
+    title: "Options",
+    message: "Choose an action",
+    actions: [action1, action2],
+    presenter: self
 )
 ```
 
-Supported views include:
-- `stackView`
-- `separator`
-- `label`
-- `imageView`
-- `view`
+## Customizing Appearance
 
-### APIService with DefaultAPIService
-Drop-in, async/await–based networking implementation that handles the full request → response → decoding lifecycle with strong defaults and useful failure diagnostics.
+Customize colors, fonts, spacing, and button styles globally via `SC.appearance`:
 
-### AppColor
-Centralized, global color palette for an application or library that defines semantic colors (primary, text, container, surface, error, etc.) with sensible UIKit defaults.
+```swift
+// Colors
+SC.appearance.color.primary = .systemIndigo
+SC.appearance.color.textPrimary = .label
 
-### AppFont
-Typography system that provides consistent, rounded system fonts with Dynamic Type support across an app or UI library.
+// Typography
+SC.appearance.font.headline = .systemFont(ofSize: 18, weight: .bold)
 
-### AlertService
-UI convenience utility that centralizes the creation and presentation of common UIAlertController patterns in UIKit.
+// Spacing
+SC.appearance.margin.standard = 16.0
 
-### LoadingService
-Simple, global loading-overlay utility for UIKit view controllers.
+// Alert button text
+SC.appearance.text.alertDismissText = "OK"
+SC.appearance.text.confirmCancelText = "No"
+SC.appearance.text.confirmConfirmationText = "Yes"
+```
+
+### Available Appearance Properties
+
+| Category | Properties |
+|----------|------------|
+| **Margin** | `extraExtraSmall`, `extraSmall`, `small`, `standard`, `large`, `extraLarge`, `extraExtraLarge` |
+| **Color** | `primary`, `secondary`, `textPrimary`, `textSecondary`, `container`, `containerLight`, `outline`, `onPrimary`, `onSecondary`, `surface`, `error` |
+| **Font** | `largeTitle`, `title1`, `title2`, `title3`, `headline`, `body`, `callout`, `subheadline`, `footnote`, `caption1`, `caption2` |
+| **Text** | `alertDismissText`, `confirmCancelText`, `confirmConfirmationText` |
+| **Buttons** | `primary`, `secondary`, `tertiary`, `outline` |
+
+## License
+
+MIT
