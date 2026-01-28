@@ -23,12 +23,16 @@ public struct SCAppearance {
         public var large = 32.0
         public var extraLarge = 40.0
         public var extraExtraLarge = 48.0
+
+        public init() {}
     }
     
     public struct Text {
         public var alertDismissText: String = "Okay"
         public var confirmCancelText: String = "Cancel"
         public var confirmConfirmationText: String = "Confirm"
+
+        public init() {}
     }
     
     public struct Color {
@@ -43,6 +47,8 @@ public struct SCAppearance {
         public var onSecondary = UIColor.white
         public var surface = UIColor.white
         public var error = UIColor.systemRed
+
+        public init() {}
     }
     
     public struct Buttons {
@@ -50,6 +56,8 @@ public struct SCAppearance {
         public var secondary = ButtonAppearance.defaultSecondaryConfiguration()
         public var tertiary = ButtonAppearance.defaultTertiaryConfiguration()
         public var outline = ButtonAppearance.defaultOutlineConfiguration()
+
+        public init() {}
     }
     
     public struct Font {
@@ -64,6 +72,8 @@ public struct SCAppearance {
         public var footnote: UIFont = UIFont.systemFont(ofSize: 13.0, weight: .regular)
         public var caption1: UIFont = UIFont.systemFont(ofSize: 12.0, weight: .regular)
         public var caption2: UIFont = UIFont.systemFont(ofSize: 12.0, weight: .regular)
+
+        public init() {}
     }
     
 }
