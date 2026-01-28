@@ -61,6 +61,10 @@ extension SC {
         var configuration = UIButton.Configuration.filled()
         configuration.baseBackgroundColor = appearance.baseBackgroundColor
         configuration.baseForegroundColor = appearance.baseForegroundColor
+        configuration.cornerStyle = appearance.cornerStyle
+        if (configuration.cornerStyle == .fixed) {
+            configuration.background.cornerRadius = appearance.cornerRadius
+        }
         configuration.titleTextAttributesTransformer = .init { attributes in
             var modifiableAttributes = attributes
             modifiableAttributes.font = appearance.font
@@ -73,6 +77,10 @@ extension SC {
         var configuration = UIButton.Configuration.bordered()
         configuration.baseBackgroundColor = appearance.baseBackgroundColor
         configuration.baseForegroundColor = appearance.baseForegroundColor
+        configuration.cornerStyle = appearance.cornerStyle
+        if (configuration.cornerStyle == .fixed) {
+            configuration.background.cornerRadius = appearance.cornerRadius
+        }
         configuration.titleTextAttributesTransformer = .init { attributes in
             var modifiableAttributes = attributes
             modifiableAttributes.font = appearance.font
@@ -107,10 +115,26 @@ public class SCButton: UIButton {
 }
 
 public struct ButtonAppearance {
-    
-    let baseBackgroundColor: UIColor?
-    let baseForegroundColor: UIColor
-    let font: UIFont
+
+    public let baseBackgroundColor: UIColor?
+    public let baseForegroundColor: UIColor
+    public let font: UIFont
+    public let cornerStyle: UIButton.Configuration.CornerStyle
+    public let cornerRadius: CGFloat
+
+    public init(
+        baseBackgroundColor: UIColor? = SC.appearance.color.primary,
+        baseForegroundColor: UIColor = SC.appearance.color.onPrimary,
+        font: UIFont = SC.appearance.font.callout,
+        cornerStyle: UIButton.Configuration.CornerStyle = .fixed,
+        cornerRadius: CGFloat = 8.0
+    ) {
+        self.baseBackgroundColor = baseBackgroundColor
+        self.baseForegroundColor = baseForegroundColor
+        self.font = font
+        self.cornerStyle = cornerStyle
+        self.cornerRadius = cornerRadius
+    }
     
     static func defaultPrimaryConfiguration() -> ButtonAppearance {
         return ButtonAppearance(
