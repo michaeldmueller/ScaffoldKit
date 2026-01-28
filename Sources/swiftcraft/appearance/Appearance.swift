@@ -8,12 +8,14 @@
 import UIKit
 
 public struct SCAppearance {
-    
+
     public var margin: Margin = Margin()
     public var text: Text = Text()
     public var color: Color = Color()
     public var buttons: Buttons = Buttons()
     public var font: Font = Font()
+
+    public init() {}
     
     public struct Margin {
         public var extraExtraSmall = 4.0
